@@ -1,0 +1,6 @@
+{
+  "name": "Royal Express Transportes - Reserva de Bilhetes Interprovinciais",
+  "description": "Plataforma digital para reserva de bilhetes, consulta de rotas e emissão de bilhetes digitais da Royal Express Transportes, LDA em Angola.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,46 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: royal-express-backend
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:royal_express_db}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      connection-timeout: 20000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+# Regras de Negócio e Pagamento da Royal Express
+royalexpress:
+  pagamento:
+    entidade: "00578"
+    validade-minutos: 60
+    moeda: "AOA"
+    provider: "EMIS_MULTICAIXA"
+    modo-mock-activado: ${PAYMENT_MOCK_ACTIVE:true}
+  empresa:
+    nome: "Royal Express Transportes, LDA"
+    nif: "5417082910"
+    telefone: "+244931324022"
+    email: "comercial@royalexpress.ao"
+    endereco: "Gamek, Nosso Centro, Luanda - Angola"
+    app-url: ${APP_URL:http://localhost:3000}
+  jwt:
+    secret: "9A4F7C2B1D8E5F0A3B6C9D2E5F8A1B4C7D0E3F6A9B2C5D8E1F4A7B0C3D6E9F2"
+    expiration-hours: 24
